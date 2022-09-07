@@ -1138,7 +1138,7 @@ def process_images(
                     x_samples_ddim_numpy = x_sample.cpu().permute(0, 2, 3, 1).numpy()
                     x_checked_image, has_nsfw_concept = check_safety(x_samples_ddim_numpy)
                     x_sample = torch.from_numpy(x_checked_image).permute(0, 3, 1, 2)
-                    
+
                 sanitized_prompt = prompts[i].replace(' ', '_').translate({ord(x): '' for x in invalid_filename_chars})
                 if variant_seed != None and variant_seed != '':
                     if variant_amount == 0.0:
